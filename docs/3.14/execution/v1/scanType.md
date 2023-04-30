@@ -1210,6 +1210,28 @@ permalink: /3.14/execution/v1/scanType/
               * [`fn withStoragePolicyID(storagePolicyID)`](#fn-specjobtemplatespectemplatespecvolumesvspherevolumewithstoragepolicyid)
               * [`fn withStoragePolicyName(storagePolicyName)`](#fn-specjobtemplatespectemplatespecvolumesvspherevolumewithstoragepolicyname)
               * [`fn withVolumePath(volumePath)`](#fn-specjobtemplatespectemplatespecvolumesvspherevolumewithvolumepath)
+    * [`obj spec.jobTemplate.status`](#obj-specjobtemplatestatus)
+      * [`fn withActive(active)`](#fn-specjobtemplatestatuswithactive)
+      * [`fn withCompletedIndexes(completedIndexes)`](#fn-specjobtemplatestatuswithcompletedindexes)
+      * [`fn withCompletionTime(completionTime)`](#fn-specjobtemplatestatuswithcompletiontime)
+      * [`fn withConditions(conditions)`](#fn-specjobtemplatestatuswithconditions)
+      * [`fn withConditionsMixin(conditions)`](#fn-specjobtemplatestatuswithconditionsmixin)
+      * [`fn withFailed(failed)`](#fn-specjobtemplatestatuswithfailed)
+      * [`fn withReady(ready)`](#fn-specjobtemplatestatuswithready)
+      * [`fn withStartTime(startTime)`](#fn-specjobtemplatestatuswithstarttime)
+      * [`fn withSucceeded(succeeded)`](#fn-specjobtemplatestatuswithsucceeded)
+      * [`obj spec.jobTemplate.status.conditions`](#obj-specjobtemplatestatusconditions)
+        * [`fn withLastProbeTime(lastProbeTime)`](#fn-specjobtemplatestatusconditionswithlastprobetime)
+        * [`fn withLastTransitionTime(lastTransitionTime)`](#fn-specjobtemplatestatusconditionswithlasttransitiontime)
+        * [`fn withMessage(message)`](#fn-specjobtemplatestatusconditionswithmessage)
+        * [`fn withReason(reason)`](#fn-specjobtemplatestatusconditionswithreason)
+        * [`fn withStatus(status)`](#fn-specjobtemplatestatusconditionswithstatus)
+        * [`fn withType(type)`](#fn-specjobtemplatestatusconditionswithtype)
+      * [`obj spec.jobTemplate.status.uncountedTerminatedPods`](#obj-specjobtemplatestatusuncountedterminatedpods)
+        * [`fn withFailed(failed)`](#fn-specjobtemplatestatusuncountedterminatedpodswithfailed)
+        * [`fn withFailedMixin(failed)`](#fn-specjobtemplatestatusuncountedterminatedpodswithfailedmixin)
+        * [`fn withSucceeded(succeeded)`](#fn-specjobtemplatestatusuncountedterminatedpodswithsucceeded)
+        * [`fn withSucceededMixin(succeeded)`](#fn-specjobtemplatestatusuncountedterminatedpodswithsucceededmixin)
 
 ## Fields
 
@@ -10090,3 +10112,173 @@ withVolumePath(volumePath)
 ```
 
 "volumePath is the path that identifies vSphere volume vmdk"
+
+## obj spec.jobTemplate.status
+
+"Current status of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status"
+
+### fn spec.jobTemplate.status.withActive
+
+```ts
+withActive(active)
+```
+
+"The number of pending and running pods."
+
+### fn spec.jobTemplate.status.withCompletedIndexes
+
+```ts
+withCompletedIndexes(completedIndexes)
+```
+
+"CompletedIndexes holds the completed indexes when .spec.completionMode = \"Indexed\" in a text format. The indexes are represented as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\"."
+
+### fn spec.jobTemplate.status.withCompletionTime
+
+```ts
+withCompletionTime(completionTime)
+```
+
+"Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC. The completion time is only set when the job finishes successfully."
+
+### fn spec.jobTemplate.status.withConditions
+
+```ts
+withConditions(conditions)
+```
+
+"The latest available observations of an object's current state. When a Job fails, one of the conditions will have type \"Failed\" and status true. When a Job is suspended, one of the conditions will have type \"Suspended\" and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \"Complete\" and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/"
+
+### fn spec.jobTemplate.status.withConditionsMixin
+
+```ts
+withConditionsMixin(conditions)
+```
+
+"The latest available observations of an object's current state. When a Job fails, one of the conditions will have type \"Failed\" and status true. When a Job is suspended, one of the conditions will have type \"Suspended\" and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \"Complete\" and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/"
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobTemplate.status.withFailed
+
+```ts
+withFailed(failed)
+```
+
+"The number of pods which reached phase Failed."
+
+### fn spec.jobTemplate.status.withReady
+
+```ts
+withReady(ready)
+```
+
+"The number of pods which have a Ready condition. \n This field is beta-level. The job controller populates the field when the feature gate JobReadyPods is enabled (enabled by default)."
+
+### fn spec.jobTemplate.status.withStartTime
+
+```ts
+withStartTime(startTime)
+```
+
+"Represents time when the job controller started processing a job. When a Job is created in the suspended state, this field is not set until the first time it is resumed. This field is reset every time a Job is resumed from suspension. It is represented in RFC3339 form and is in UTC."
+
+### fn spec.jobTemplate.status.withSucceeded
+
+```ts
+withSucceeded(succeeded)
+```
+
+"The number of pods which reached phase Succeeded."
+
+## obj spec.jobTemplate.status.conditions
+
+"The latest available observations of an object's current state. When a Job fails, one of the conditions will have type \"Failed\" and status true. When a Job is suspended, one of the conditions will have type \"Suspended\" and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \"Complete\" and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/"
+
+### fn spec.jobTemplate.status.conditions.withLastProbeTime
+
+```ts
+withLastProbeTime(lastProbeTime)
+```
+
+"Last time the condition was checked."
+
+### fn spec.jobTemplate.status.conditions.withLastTransitionTime
+
+```ts
+withLastTransitionTime(lastTransitionTime)
+```
+
+"Last time the condition transit from one status to another."
+
+### fn spec.jobTemplate.status.conditions.withMessage
+
+```ts
+withMessage(message)
+```
+
+"Human readable message indicating details about last transition."
+
+### fn spec.jobTemplate.status.conditions.withReason
+
+```ts
+withReason(reason)
+```
+
+"(brief) reason for the condition's last transition."
+
+### fn spec.jobTemplate.status.conditions.withStatus
+
+```ts
+withStatus(status)
+```
+
+"Status of the condition, one of True, False, Unknown."
+
+### fn spec.jobTemplate.status.conditions.withType
+
+```ts
+withType(type)
+```
+
+"Type of job condition, Complete or Failed."
+
+## obj spec.jobTemplate.status.uncountedTerminatedPods
+
+"UncountedTerminatedPods holds the UIDs of Pods that have terminated but the job controller hasn't yet accounted for in the status counters. \n The job controller creates pods with a finalizer. When a pod terminates (succeeded or failed), the controller does three steps to account for it in the job status: (1) Add the pod UID to the arrays in this field. (2) Remove the pod finalizer. (3) Remove the pod UID from the arrays while increasing the corresponding     counter. \n This field is beta-level. The job controller only makes use of this field when the feature gate JobTrackingWithFinalizers is enabled (enabled by default). Old jobs might not be tracked using this field, in which case the field remains null."
+
+### fn spec.jobTemplate.status.uncountedTerminatedPods.withFailed
+
+```ts
+withFailed(failed)
+```
+
+"Failed holds UIDs of failed Pods."
+
+### fn spec.jobTemplate.status.uncountedTerminatedPods.withFailedMixin
+
+```ts
+withFailedMixin(failed)
+```
+
+"Failed holds UIDs of failed Pods."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobTemplate.status.uncountedTerminatedPods.withSucceeded
+
+```ts
+withSucceeded(succeeded)
+```
+
+"Succeeded holds UIDs of succeeded Pods."
+
+### fn spec.jobTemplate.status.uncountedTerminatedPods.withSucceededMixin
+
+```ts
+withSucceededMixin(succeeded)
+```
+
+"Succeeded holds UIDs of succeeded Pods."
+
+**Note:** This function appends passed data to existing values
